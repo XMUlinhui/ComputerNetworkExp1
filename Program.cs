@@ -23,10 +23,9 @@ public class PortChat
         // Allow the user to set the appropriate properties.
         _serialPort.PortName = SetPortName(_serialPort.PortName);
         _serialPort.BaudRate = SetPortBaudRate(_serialPort.BaudRate);
-        _serialPort.Parity = SetPortParity(_serialPort.Parity);
         _serialPort.DataBits = SetPortDataBits(_serialPort.DataBits);
         _serialPort.StopBits = SetPortStopBits(_serialPort.StopBits);
-        _serialPort.Handshake = SetPortHandshake(_serialPort.Handshake);
+  
 
         // Set the read/write timeouts
         _serialPort.ReadTimeout = 500;
@@ -115,13 +114,6 @@ public class PortChat
         return int.Parse(baudRate);
     }
 
-    // Display PortParity values and prompt user to enter a value.
-    public static Parity SetPortParity(Parity defaultPortParity)
-    {
-        string parity;
-        parity = defaultPortParity.ToString();
-        return (Parity)Enum.Parse(typeof(Parity), parity, true);
-    }
     // Display DataBits values and prompt user to enter a value.
     public static int SetPortDataBits(int defaultPortDataBits)
     {
@@ -160,10 +152,5 @@ public class PortChat
        
         return (StopBits)Enum.Parse(typeof(StopBits), stopBits, true);
     }
-    public static Handshake SetPortHandshake(Handshake defaultPortHandshake)
-    {
-        string handshake;
-        handshake = defaultPortHandshake.ToString();
-        return (Handshake)Enum.Parse(typeof(Handshake), handshake, true);
-    }
+
 }
